@@ -1,6 +1,7 @@
 *.md
 
 vendor/*
+logs/
 
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]

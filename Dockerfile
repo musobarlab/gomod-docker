@@ -21,7 +21,9 @@ ENV SRC_DIR=/usr/app/
 # Environment Variables
 ENV LOG_FILE_LOCATION=${LOG_DIR}/app.log
 
-ADD . $SRC_DIR
+COPY . $SRC_DIR
+
+RUN ls
 
 RUN apk update && apk add --no-cache $BUILD_PACKAGES \
   && go mod download \
