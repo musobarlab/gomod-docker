@@ -23,8 +23,6 @@ ENV LOG_FILE_LOCATION=${LOG_DIR}/app.log
 
 COPY . $SRC_DIR
 
-RUN ls
-
 RUN apk update && apk add --no-cache $BUILD_PACKAGES \
   && go mod download \
   && apk del $BUILD_PACKAGES \
