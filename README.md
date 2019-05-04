@@ -13,3 +13,9 @@ Build Docker image
 $ make docker
 $ docker run -p 8080:8080 gomod-docker
 ```
+
+RUN with volumes
+```shell
+$ make docker
+$ docker run -p 8080:8080 -v ${PWD}/logs:/gomod-docker/logs gomod-docker
+```

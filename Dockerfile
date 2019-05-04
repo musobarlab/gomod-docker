@@ -1,15 +1,25 @@
 FROM golang:1.11.1-alpine3.8
 
+# Add args
+ARG APP_NAME=gomod-docker
+ARG LOG_DIR=/${APP_NAME}/logs
+
+# env build packages
+ARG BUILD_PACKAGES="git curl"
+# build packages with cert
+# ARG BUILD_PACKAGES="git curl ca-certificates"
+
+# Create folder logs 
+RUN mkdir -p ${LOG_DIR}
+
+# Set the Current Working Directory inside the container
 WORKDIR /usr/app
 
 # Add the source code
 ENV SRC_DIR=/usr/app/
 
-# build packages with cert
-# ENV BUILD_PACKAGES="git curl ca-certificates"
-
-# build packages
-ENV BUILD_PACKAGES="git curl"
+# Environment Variables
+ENV LOG_FILE_LOCATION=${LOG_DIR}/app.log
 
 ADD . $SRC_DIR
 
